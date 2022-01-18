@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 
 const startBtn = document.querySelector('[type="submit"]');
 const form = document.querySelector('.form');
+// startBtn.disabled = true;
 
 startBtn.addEventListener('click', onBtnSbm);
 
@@ -11,6 +12,10 @@ function onBtnSbm(elm) {
   let delay = Number(form.elements.delay.value);
   let step = Number(form.elements.step.value);
   let amount = Number(form.elements.amount.value);
+  if(delay == '' || step == ''  || amount == ''){
+return;
+       // startBtn.disabled = false;
+  }
 
   setTimeout(() => {
     setInterval(() => {
