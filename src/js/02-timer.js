@@ -2,7 +2,7 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
 const startBtn = document.querySelector('[data-start]');
-// const inputData = document.querySelector('#datetime-picker');
+const inputData = document.querySelector('#datetime-picker');
 const hoursField = document.querySelector('[data-hours]');
 const minutesField = document.querySelector('[data-minutes]');
 const secondsField = document.querySelector('[data-seconds]');
@@ -10,6 +10,7 @@ const daysField = document.querySelector('[data-days]');
 
 let date = null;
 startBtn.disabled = true;
+
 
 const options = {
   enableTime: true,
@@ -36,6 +37,9 @@ function timer() {
       minutesField.textContent = convertMs(ms).minutes;
       secondsField.textContent = convertMs(ms).seconds;
   }, 1000);
+  startBtn.disabled = true;
+  inputData.disabled = true;
+
 }
 startBtn.addEventListener('click', timer);
 

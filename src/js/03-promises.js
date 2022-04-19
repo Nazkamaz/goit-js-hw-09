@@ -1,17 +1,18 @@
 import Notiflix from 'notiflix';
 
-const startBtn = document.querySelector('[type="submit"]');
-const form = document.querySelector('.form');
+// const startBtn = document.querySelector('[type="submit"]');
+const form = document.querySelector('form');
 // startBtn.disabled = true;
 
-startBtn.addEventListener('click', onBtnSbm);
+form.addEventListener('submit', onBtnSbm);
+let position = 0;
+function onBtnSbm(evt) {
 
-function onBtnSbm(elm) {
-  elm.preventDefault();
-  let position = 0;
-  let delay = Number(form.elements.delay.value);
-  let step = Number(form.elements.step.value);
-  let amount = Number(form.elements.amount.value);
+  evt.preventDefault();
+   console.log(evt.currentTarget.delay.value);
+  let delay = Number(evt.currentTarget.elements.delay.value);
+  let step = Number(evt.currentTarget.elements.step.value);
+  let amount = Number(evt.currentTarget.elements.amount.value);
   if(delay == '' || step == ''  || amount == ''){
 return;
        // startBtn.disabled = false;
